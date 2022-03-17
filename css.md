@@ -682,16 +682,16 @@ Be aware, however, that if you set `.btn {background: red;}`, for example, what 
 
 ```
 .btn {
-  background-attachment: initial;
-  background-clip: initial;
-  background-color: red;       // This is the only value you wished to set
-  background-image: initial;
-  background-origin: initial;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-repeat-x: initial;
-  background-repeat-y: initial;
-  background-size: initial;
+    background-attachment: initial;
+    background-clip: initial;
+    background-color: red;       // This is the only value you wished to set
+    background-image: initial;
+    background-origin: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-size: initial;
 }
 ```
 
