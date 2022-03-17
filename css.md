@@ -1,7 +1,7 @@
 ## CSS standards guide
 
-Version 1.0.1
-Last updated: Monday 19 December 2016
+* Version 1.1.0
+* Last updated: Thursday 17 March 2022
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -211,12 +211,12 @@ If concatinated and minified most production files will be called something shor
 Filenames MUST be all lowercase, with no spaces. This makes them easier to read and prevents links that replace spaces with `%20` codes.
 
 
-#### Use a hyphen (-) to separate words
+#### Use a hyphen to separate words
 
 Use a hyphen (`-`) to separate words, e.g. `external-stylesheet.css`. This makes filenames easier to read than `externalstylesheet.css`.
 
 
-#### Underscores (_) for Sass files only
+#### Underscores for Sass files only
 
 Underscores (`_`) may be used only for naming Sass (or Less) partial files.
 
@@ -234,7 +234,7 @@ External CSS MUST be referenced via the `link` element, which MUST be placed in 
 ```
 
 
-#### @import for debug and Sass only
+#### Use import for debug and Sass only
 External CSS MUST NOT be imported using `@import`; this impairs caching and blocks rendering.
 
 Debug files during development, and pre-processor source files (e.g. Sass) are the only exceptions to this rule. `@import` rules MUST appear before any other rules in the document. You SHOULD include comments before the `@import` rules to explain what they are.
@@ -282,6 +282,15 @@ h1, h2,
 }
 ```
 
+Here is another example of a CSS rule using semantic terminology rather than CSS code:
+
+```
+selector {
+    property-name: property-value;  
+}
+```
+
+
 Every CSS rule comprises two parts: a selector (or selectors),
 
 ```
@@ -300,7 +309,7 @@ and a declaration block, containing one or more declarations.
 }
 ```
 
-Each declaration is a pairing of a property name and a property value separated by a colon, and concluding with a semi-colon.
+Each declaration is a pairing of a property name and a property value separated by a colon, and concluding with a semicolon.
 
 
 ### 3.2 Line width (80 characters)
@@ -313,9 +322,9 @@ Where possible, **limit CSS files' width to 80 characters**. Reasons for this in
 
 ```
 /**
- * I am a long-form comment. I describe, in detail, the CSS that follows. I am
- * such a long comment that I easily break the 80 character limit, so I am
- * broken across several lines.
+ * This is a long-form comment. I describe in detail the CSS that follows.
+ * It is such a long comment that it easily breaks the 80 character limit,
+ * so it is broken across several lines.
  */
 ```
 
@@ -338,14 +347,14 @@ Consider this example rule:
 *   Related selectors SHOULD be on the same line; unrelated selectors SHOULD be on new lines.
 *   The opening brace (`{`) MUST be on the same line as the final selector.
 *   There SHOULD be a space before the opening brace (`{`).
-*   Each declaration is on its own new line; the first declaration is on a new line after the opening brace (`{`);
+*   Each declaration MUST be on its own new line; the first declaration MUST be on a new line after the opening brace (`{`);
 *   Properties and values MUST be on the same line.
 *   There MUST be NO SPACE between the property-name and colon (`:`).
 *   There MUST be one space after the property–value delimiting colon (`:`).
 *   Each declaration MUST be indented by four (4) spaces;
-*   A trailing semi-colon (`;`) MUST be included after the last declaration;
-    this enables authors to add new declarations after it without the 
-    possibility of missing colons introducing errors.
+*   A trailing semicolon (`;`) MUST be included after the last declaration;
+    this enables authors to add new declarations after it (or reorder declarations)
+    without the possibility of missing colons introducing errors.
 *   The closing brace (`}`) must be on its own new line using the same level of indentation as its opening selectors.
 
 Source: [CSS guidelines](http://cssguidelin.es/#anatomy-of-a-ruleset "Harry Roberts")
@@ -357,7 +366,7 @@ CSS should be written across multiple lines, except in very specific circumstanc
 
 *   A reduced chance of merge conflicts, because each piece of functionality
     exists on its own line.
-*   More 'truthful' and reliable diffs, because one line only ever carries 
+*   More 'truthful' and reliable code diffs (file comparisons), because one line only ever carries 
     one change.
 
 Exceptions to this rule should be fairly apparent, such as similar rulesets that only carry one declaration each, for example:
@@ -379,8 +388,8 @@ Exceptions to this rule should be fairly apparent, such as similar rulesets that
 These types of ruleset benefit from being single-lined because:
 
 *   they still conform to the one-reason-to-change-per-line rule;
-*   they share enough similarities that they don't need to be read as
-    thoroughly as other rulesets—there is more benefit in being able to scan their selectors, which are of more interest to us in these cases.
+*   they share enough similarities that they don't need to be read as thoroughly as other rulesets — there 
+    is more benefit in being able to scan their selectors, which are of more interest to us in these cases.
 
 Source: [CSS guidelines](http://cssguidelin.es/#multi-line-css "Harry Roberts")
 
@@ -390,8 +399,9 @@ Source: [CSS guidelines](http://cssguidelin.es/#multi-line-css "Harry Roberts")
 The purpose of indentation is to improve the legibility of the code.
 
 *    Indent declarations MUST be created with four (4) spaces.
-*    Tabs and spaces MUST NEVER be mixed. Code indented with a mixture
-     of tabs and spaces should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
+*    Indentation with four spaces is easier to read than two for many people with eyesight (accessibility) issues.
+*    Tabs and spaces MUST NEVER be mixed. Code indented with a mixture of tabs and spaces 
+     should be converted to using spaces only; if your coding editor allows, set the option to convert tabs to spaces.
 
 
 ##### Indenting Sass
@@ -475,10 +485,10 @@ Attempt to align common and related identical strings in declarations, for examp
 
 .bar {
     position: absolute;
-    top:           0;
-    right:         0;
-    bottom:        0;
-    left:          0;
+        top:    0;
+        right:  0;
+        bottom: 0;
+        left:   0;    
     margin-right: -10px;
     margin-left:  -15px;
     padding-right: 20px;
@@ -536,16 +546,16 @@ Source: [CSS guidelines](http://cssguidelin.es/#meaningful-whitespace)
 
 ### 3.5 Colours
 
-#### Use the approved University of St Andrews palette of colours
+#### Use the approved palette of colours
 
-Unless you have a very good reason not to, you MUST use the approved palette of University of St&nbsp;Andrews colours. Web colours are defined in the [digital pattern library](https://www.st-andrews.ac.uk/~wwwtest/dpl/0.5.2/index.html).
-
+Unless you have a very good reason not to, you MUST use the approved palette of colours.
 
 #### Colour keywords — use only black and white
 
 The [CSS Color Module Level 3](http://www.w3.org/TR/css3-color/#html4) specification defines 16 basic colour keywords: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
-You MUST NOT use colour keywords except `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor. Other colour keywords MAY be used in debug files.
+* You MUST NOT use colour keywords except `black` and `white`; although consider this article [Design tip: never use black](http://ianstormtaylor.com/design-tip-never-use-black/) by Ian Storm Taylor.
+* Other colour keywords MAY be used in debug files.
 
 
 #### Prefer RGB over hex
@@ -554,20 +564,19 @@ You SHOULD use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MU
 
 The reason for preferring RGB is three-fold:
 
-1.   Colours in RGB format are easier to read and estimate the colour.
-2.   It is quicker to add transparency if required (see alpha transparency)
-     below.
-3.   RGB format is more widely supported in graphic design applications.
+1.   Colours in RGB format are easier to read and estimate the colour when reading code.
+2.   It is quicker to add transparency if required (see alpha transparency) below.
+3.   RGB format is more widely supported in graphic design applications without needing to convert to hexadecimal.
 
 
-#### Use short hex codes
+#### Use lowercase, short hex codes
 
-If you must use hex codes, you SHOULD shorten values where possible (`#fff` instead of `#ffffff`), and use lowercase alphabetical values (`#fff` not `#FFF`).
+If you need to use hex codes, you SHOULD shorten values where possible (`#fff` instead of `#ffffff`), and use lowercase alphabetical values (`#fff` not `#FFF`).
 
 
 #### Alpha transparency
 
-Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alpha transparency later, as you simply need to append an ‘a’ and a fourth value:
+Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alpha transparency later, as you simply need to append an ‘a’ and add a fourth value:
 
 ```
 .black {
@@ -579,16 +588,16 @@ Specifying colours in `rgb(r, g, b)` format also makes it much easier to add alp
 }
 ```
 
-Alpha values smaller than 1 MUST always begin with a zero (`0.75` rather than `.75`); without a zero it can trigger errors in CSS pre-processors.
+Alpha values smaller than one (1) MUST always begin with a zero (`0.75` rather than `.75`); without a zero it can trigger errors in CSS pre-processors.
 
-If the alpha value is 1 then you SHOULD simply use `rgb(r, g, b)` rather than `rgba(r, g, b, 1);`.
+If the alpha value is one (1) then you SHOULD simply use `rgb(r, g, b)` rather than `rgba(r, g, b, 1);`.
 
 
 ### 3.6 Syntax
 
 #### Use single quotation marks
 
-In CSS, quotation marks are optional, however, languages that do not require strings to be quoted are a minority. You MUST always use single quotation marks unless there is a compelling reason to not use, for example to aid clarity.
+In CSS, quotation marks are optional, however, languages that do not require strings to be quoted are a minority. You MUST always use single quotation marks unless there is a compelling reason to not use them, for example, to aid clarity.
 
 It is preferable to use single quotes for CSS and double-quotes for HTML so that you may easily drop CSS code into inline styles if required, e.g.
 
@@ -645,12 +654,12 @@ Compare the following for clarity:
 }
 
 .clearer {
-    font-family:  Verdana, Arial, Helvetica, sans-serif;
-    font-size:    1em;
-    font-style:   italic;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-style: italic;
     font-variant: small-caps;
-    font-weight:  bold;
-    line-height:  1.1em;
+    font-weight: bold;
+    line-height: 1.1em;
 }
 ```
 
@@ -806,7 +815,7 @@ You MUST keep comments up-to-date when code changes.
 
 Comments SHOULD NOT make their way into production environments. Comments are for development not production.
 
-All CSS SHOULD be minified, stripping out comments, before being deployed.
+All CSS SHOULD be minified and stripped of comments before being deployed.
 
 
 ### 4.2 Preprocessor comments
@@ -818,7 +827,7 @@ Preprocessors, such as [Sass](http://sass-lang.com/documentation/file.SASS_REFER
 2.   Single-line comments (`// comment`) which are removed from production 
      code after the code has been compiled.
 
-Use whichever will help you best when testing, debugging and maintaining your code. For example:
+Use whichever type will help you best when testing, debugging and maintaining your code. For example:
 
 ```
 // Dimensions of the @2x image sprite:
@@ -954,7 +963,7 @@ Every new major section and sub-section of a CSS file MUST be prefixed with a se
 
 ### 4.6 Magic numbers
 
-"Magic number" is an old school programming term for an unnamed numerical constant. Basically, it’s just a random number that happens to _just work_™ yet is not tied to any logical explanation.
+"Magic number" is an old-school programming term for an unnamed numerical constant. Basically, it’s just a random number that happens to _just work_™ yet is not tied to any logical explanation.
 
 Needless to say, magic numbers are a plague and should be avoided at all costs. When you cannot manage to find a reasonable explanation for why a number works, add an extensive comment explaining how you got there and why you think it works. Admitting you don’t know why something works is still more helpful to the next developer than them having to figure out what's going on from scratch.
 
@@ -977,7 +986,7 @@ Further reading
 
 ### 4.7 Object–extension pointers
 
-When working across multiple partials, or in an OOCSS (object-oriented CSS) manner, you will often find that rulesets that can work in conjunction with each other are not always in the same file or location. For example, you may have a generic button object—which provides purely structural styles—which is to be extended in a component-level partial which will add cosmetics. We document this relationship across files with simple object–extension pointers. In the object file:
+When working across multiple partials, or in an OOCSS (object-oriented CSS) manner, you will often find that rulesets that can work in conjunction with each other are not always in the same file or location. For example, you may have a generic button object — which provides purely structural styles — which is to be extended in a component-level partial which will add cosmetics. We document this relationship across files with simple object–extension pointers. In the object file:
 
 ```
 /**
@@ -1071,13 +1080,14 @@ As Jonathan Snook says in [Scalable and Modular Architecture for CSS](https://sm
 > onto the end of a single file would make finding things more difficult and 
 > would be very confusing for anybody else working on the project.
 
-We use Jonathan Snook's Scalable and Modular Architecture for CSS (SMACSS), to inform how to organise the rules within a CSS (or Sass) file.
+Use Jonathan Snook's Scalable and Modular Architecture for CSS (SMACSS) to inform how to organise the rules within a CSS (or Sass) file.
 
 
 ### 5.1 Categorise your CSS rules
 
-At the heart of SMACSS is categorisation. CSS rules are grouped into five categories:
+At the heart of SMACSS is categorisation. CSS rules are grouped into five (or six) categories:
 
+0. Framework (optional)
 1. Base
 2. Layout
 3. Module
@@ -1086,7 +1096,7 @@ At the heart of SMACSS is categorisation. CSS rules are grouped into five catego
 
 By separating our rules into these categories it keeps our code simpler, more modular and cleaner. As Snook remarks,
 
-> Much of the purpose of categorizing things is to codify patterns—things that
+> Much of the purpose of categorizing things is to codify patterns — things that
 > repeat themselves within our design. Repetition results in less code, easier 
 > maintenance, and greater consistency in the user experience. These are all 
 > wins. Exceptions to the rule can be advantageous but they should be 
@@ -1140,7 +1150,7 @@ input[type="text"] {
 
 ##### CSS resets
 
-CSS resets (which are designed to strip out, or standardise, across all browsers the default margins, padding, and other properties) are a particular subset of base styles.
+CSS resets (which are designed to strip out, or standardise, the default margins, padding, and other properties across all browsers) are a particular subset of base styles.
 
 If you use a separate CSS reset (for example, Eric Meyer's [Reset CSS](http://meyerweb.com/eric/tools/css/reset/ "CSS Tools: Reset CSS") or [Normalize](http://necolas.github.io/normalize.css/ "A modern, HTML5-ready alternative to CSS resets")) then you should include this at the top of the base section before any of your own rules.
 
@@ -1164,7 +1174,7 @@ If you need to include frameworks (whole or in part) within your stylesheet — 
 
 #### 2. Layout
 
-Layout rules define the major layout components of a page, such as header, footer, navigation, main content, and sidebar. These are the areas in which modules sit.
+Layout rules define the major layout components of a page, such as header, navigation, main content, sidebar, and footer. These are the areas in which modules sit.
 
 
 ##### Further reading
@@ -1174,11 +1184,11 @@ Layout rules define the major layout components of a page, such as header, foote
 
 #### 3. Modules
 
-Modules are the reusable, modular components of our design. These are usually defined by distinct patterns in our digital pattern library, e.g. accordion, breadcrumps, hero banner, navbox, etc.
+Modules are the reusable, modular components of our design. These are usually defined by distinct patterns in our digital pattern library, e.g. accordion, breadcrumbs, hero banner, navbox, etc.
 
 * Modules sit inside layout components.
 * Modules can sometimes sit within other modules, too.
-* Each Module should be designed to exist as a standalone component.
+* Each module should be designed to exist as a standalone component.
 * Modules can easily be moved to different parts of the layout without breaking.
 
 
@@ -1199,14 +1209,14 @@ State rules describe how our layouts or modules will look when in a particular s
 > For example, an accordion section may be in a collapsed or expanded state. 
 > A message may be in a success or error state." [Source](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
-But the state may also refer to how something looks on a larger or smaller screen, or how an element might appear in a different view such as on the homepage.
+But the state may also refer to how something differs on a larger (desktop) or smaller (mobile) screen, or how an element might appear in a different view such as on the homepage.
 
 
 ##### Prefix classes with .is-
 
 Jonathan Snook's idea is that "states are generally applied to the same element as a layout rule or applied to the same element as a base module class." 
 
-In some cases it can be very useful to prefix the class name with the verb `is-`, for example:
+In some cases, it can be very useful to prefix the class name with the verb `is-`, for example:
 
 * `.is-hidden`
 * `.is-expanded`
@@ -1225,7 +1235,7 @@ The answer to this question is worth quoting in full:
 
 "It is this second point that is the most important distinction. Sub-module styles are applied to an element at render time and then are never changed again. State styles, however, are applied to elements to indicate a change in state while the page is still running on the client machine.
 
-"For example, clicking on a tab will activate that tab. Therefore, an is-active or is-tab-active class is appropriate. Clicking on a dialog close button will hide the dialog. Therefore, an is-hidden class is appropriate."
+"For example, clicking on a tab will activate that tab. Therefore, an `is-active` or `is-active-tab` class is appropriate. Clicking on a dialog close button will hide the dialog. Therefore, an `is-hidden` class is appropriate."
 
 Source: [SMACSS: Type state](https://smacss.com/book/type-state "Scalable and Modular Architecture for CSS by Jonathan Snook")
 
@@ -1234,7 +1244,7 @@ Source: [SMACSS: Type state](https://smacss.com/book/type-state "Scalable and Mo
 
 States should be stand-alone and built from one single class selector, e.g. `.is-selected`.
 
-Use of `!important` is allowed if required, but do not from apply it unless it is absolutely necessary.
+Use of `!important` is allowed if required, but only if it is absolutely necessary.
 
 
 ##### Further reading
@@ -1264,7 +1274,7 @@ It is probably self-evident that not all colour and image information needs to s
 
 // in theme.css
 .module {
-    border-colour: rgb(0, 83, 155);
+    border-colour: rgb(0, 83, 155); /* St Andrews blue */
 }
 ```
 
@@ -1279,7 +1289,7 @@ or you may prefer to separate these out completely. The context should determine
 
 // in theme.css
 .module {
-    border-colour: rgb(0, 83, 155);
+    border-colour: rgb(0, 83, 155); /* St Andrews blue */
 }
 ```
 
@@ -1295,15 +1305,15 @@ or you may prefer to separate these out completely. The context should determine
 
 ## 6. Naming conventions
 
-Naming conventions in CSS are hugely useful in making your code more strict, more transparent, and more informative.
+Naming conventions in CSS are very useful in making your code more strict, more transparent, and more informative.
 
 A good naming convention will tell you and your team:
 
 *   what type of thing a class does;
-*   where a class can be used;
-*   what (else) a class might be related to.
+*   where a class may be used;
+*   what (else) a class is related to.
 
-Use a very simple naming convention: hyphen (-) delimited strings, with BEM-like naming for more complex pieces of code.
+Use a very simple naming convention: hyphen (`-`) delimited strings, with [BEM](http://getbem.com/)-like naming for more complex pieces of code.
 
 It's worth noting that a naming convention is not only useful for the CSS-side of development, they really come into their own when viewed in HTML.
 
@@ -1384,11 +1394,11 @@ In keeping with the [grammatical rules defined for CSS 2.1](http://www.w3.org/TR
 *   numbers
 
 
-#### Characters to avoid
+#### Characters to avoid in class and ID names
 
-*   Asterisks (*) are universal selectors: they will apply styling to every 
+*   Asterisks (`*`) are universal selectors: they will apply styling to every 
     element in the document. Do not use them in class or ID names.
-*   Forward slashes (/) and backward slashes (\\) are not accepted.
+*   Forward slashes (`/`) and backward slashes (`\\`) are not accepted.
 *   Accented or non-English characters, e.g. á, æ, ç, è, î, ö, ø, û. Substitute these with the nearest English equivalent, e.g. a, ae, c, e, i, o, o, u.
 
 
@@ -1431,7 +1441,7 @@ To take an analogy (note, not an example):
 .person--tall {}
 ```
 
-Elements are delimited with two (2) underscores (__), and modifiers are delimited by two (2) hyphens (--).
+Elements are delimited with two (2) underscores (`__`), and modifiers are delimited by two (2) hyphens (`--`).
 
 Here we can see that `.person {}` is the block; it is the sole root of a discrete entity. `.person__head {}` is an element; it is a smaller part of the `.person {}` block. Finally, `.person--tall {}` is a modifier; it is a specific variant of the `.person {}` block.
 
@@ -1445,7 +1455,7 @@ It is important to know when BEM scope starts and stops. As a rule, BEM applies 
 
 ### 6.6 Naming conventions in HTML
 
-As I previously hinted at, naming conventions aren't necessarily all that useful in your CSS. Where naming conventions' power really lies is in your markup. Take the following, non-naming-conventioned HTML:
+As I previously hinted, naming conventions aren't necessarily all that useful in your CSS. Where naming conventions' power really lies is in your markup. Take the following, non-naming-conventioned HTML:
 
 ```
 <div class="box  profile  pro-user">
@@ -1473,7 +1483,7 @@ From that markup alone, it is very hard to answer any of those questions. Using 
 </div>
 ```
 
-Now we can clearly see which classes are and are not related to each other, and how; we know what classes we can't use outside of the scope of this component; and we know which classes we may be free to reuse elsewhere.
+Now we can clearly see which classes are and which classes are not related to each other, and how; we know which classes we can't use outside of the scope of this component; and we know which classes we may be free to reuse elsewhere.
 
 
 ### 6.7 JavaScript hooks
@@ -1561,7 +1571,7 @@ All of these issues are greatly magnified when working on a larger project with 
 
 The problem with specificity isn't necessarily that it's high or low; it's the fact it is so variant and that it cannot be opted out of: the only way to deal with it is to get progressively more specific.
 
-One of the single, simplest tips for an easier life when writing CSS—particularly at any reasonable scale — is to **always try and keep specificity as low as possible at all times**. Try to make sure there isn't a lot of variance between selectors in your codebase, and that all selectors strive for as low a specificity as possible.
+One of the single, simplest tips for an easier life when writing CSS — particularly at any reasonable scale — is to **always try and keep specificity as low as possible at all times**. Try to make sure there isn't a lot of variance between selectors in your codebase, and that all selectors strive for as low a specificity as possible.
 
 Doing so will instantly help you tame and manage your project, meaning that no overly-specific selectors are likely to impact or affect anything of a lower specificity elsewhere. It also means you're less likely to need to fight your way out of specificity corners, and you'll probably also be writing much smaller stylesheets.
 
@@ -1690,7 +1700,7 @@ Let's take an example of a call-to-action button that we have chosen to style vi
 .promo a {}
 ```
 
-Not only does this have poor selector intent—it will greedily style any and every link inside of a `.promo` to look like a button — it is also pretty wasteful as a result of being so locationally dependent: we can't reuse that button with its correct styling outside of `.promo` because it is explicitly tied to that location. A far better selector would have been:
+Not only does this have poor selector intent — it will greedily style any and every link inside of a `.promo` to look like a button — it is also pretty wasteful as a result of being so locationally dependent: we can't reuse that button with its correct styling outside of `.promo` because it is explicitly tied to that location. A far better selector would have been:
 
 ```
 .btn {}
@@ -1810,7 +1820,7 @@ Above, we can see how the `.btn {}` class simply provides structural styling to 
 <button class="btn  btn--negative">Delete</button>
 ```
 
-Favour the multiple-class approach over using something like `@extend:` using multiple classes in your markup—as opposed to wrapping the classes up into one using a preprocessor:
+Favour the multiple-class approach over using something like `@extend:` using multiple classes in your markup — as opposed to wrapping the classes up into one using a preprocessor:
 
 *   gives you a better paper-trail in your markup, and allows you to see 
     quickly and explicitly which classes are acting on a piece of HTML;
@@ -1933,7 +1943,7 @@ Let's take an example:
 }
 ```
 
-Here we can see that the `.box {}` object is incredibly simple: we've stripped it right back into one very small and very focussed responsibility. To modify that box, we extend it with another class; `.box--large {}`. Here the `.box {} class is closed to modification, but open to being extended.
+Here we can see that the `.box {}` object is incredibly simple: we've stripped it right back into one very small and very focussed responsibility. To modify that box, we extend it with another class; `.box--large {}`. Here the `.box {}` class is closed to modification, but open to being extended.
 
 An incorrect way of achieving the same might look like this:
 
@@ -1948,7 +1958,7 @@ An incorrect way of achieving the same might look like this:
 }
 ```
 
-Not only is this overly specific, locationally dependent, and potentially displaying poor selector intent, we are modifying the `.box {}` directly. We should rarely—if ever—find an object or abstraction's class as a key selector in a compound selector.
+Not only is this overly specific, locationally dependent, and potentially displaying poor selector intent, we are modifying the `.box {}` directly. We should rarely — if ever — find an object or abstraction's class as a key selector in a compound selector.
 
 A selector like `.content .box {}` is potentially troublesome because
 
@@ -1991,7 +2001,7 @@ The term was coined by Edsger W. Dijkstra, who rather elegantly said:
 > that viewpoint only; we also know that it should be efficient and we can 
 > study its efficiency on another day, so to speak. In another mood we may ask 
 > ourselves whether, and if so: why, the program is desirable. But nothing is 
-> gained—on the contrary!—by tackling these various aspects simultaneously. It 
+> gained — on the contrary!—by tackling these various aspects simultaneously. It 
 > is what I sometimes have called ‘the separation of concerns', which, even if 
 > not perfectly possible, is yet the only available technique for effective 
 > ordering of one's thoughts, that I know of. This is what I mean by ‘focusing 
@@ -2036,7 +2046,7 @@ You will now need to write new, separate code to handle what lives inside of tha
 </div>
 ```
 
-The separation of concerns allows you to keep code self-sufficient, ignorant, and ultimately a lot more maintainable. Code which adheres to the separation of concerns can be much more confidently modified, edited, extended, and maintained because we know how far its responsibilities reach. We know that modifying layout, for example, will only ever modify layout—nothing else.
+The separation of concerns allows you to keep code self-sufficient, ignorant, and ultimately a lot more maintainable. Code which adheres to the separation of concerns can be much more confidently modified, edited, extended, and maintained because we know how far its responsibilities reach. We know that modifying layout, for example, will only ever modify layout — nothing else.
 
 The separation of concerns increases reusability and confidence whilst reducing dependency.
 
@@ -2192,7 +2202,7 @@ By using a child selector (e.g. `.foo > .bar {}`) we can make the process much m
 
 Because browsers read selectors right-to-left, the rightmost selector is often critical in defining a selector's performance: this is called the key selector.
 
-The following selector might appear to be highly performant at first glance. It uses an ID which is nice and fast, and there can only ever be one on a page, so surely this will be a nice and speedy lookup—just find that one ID and then style everything inside of it:
+The following selector might appear to be highly performant at first glance. It uses an ID which is nice and fast, and there can only ever be one on a page, so surely this will be a nice and speedy lookup — just find that one ID and then style everything inside of it:
 
 ```
 #foo * {}
