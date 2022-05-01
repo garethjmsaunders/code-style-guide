@@ -101,7 +101,7 @@ The only **exception** is when populating a **new repository**. All that is requ
 Every commit subject line MUST start with a TYPE in all CAPS and no spaces or other characters preceding it. The recognised types are:
 
 | TYPE     | Description                                                        |
-| ------ --| ------------------------------------------------------------------ |
+| -------- | ------------------------------------------------------------------ |
 | BREAK    | A breaking change such as removing a feature.                      |
 | DOCS     | Changes to the documentation (readme, API docs, etc.).             |
 | FEAT     | New feature in production code.                                    |
@@ -109,7 +109,7 @@ Every commit subject line MUST start with a TYPE in all CAPS and no spaces or ot
 | FORMAT   | Code formatting, code comment change, etc; (compiled-code neutral).|
 | MAINT    | Updating dev-related maintenance ("non-production code") files.    |
 | MERGE    | Pull request to merge branch into another branch or master.        |
-| REFACTOR | Improve the code without changing the functionality.             |
+| REFACTOR | Improve the code without changing the functionality.               |
 | TEST     | Adding missing tests or editing tests.                             |
 
 
