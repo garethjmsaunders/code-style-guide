@@ -792,9 +792,11 @@ When a length value is zero (0) do not use a unit designator. Zero is always zer
 
 ### 4.1 General guidelines
 
-As Harry Roberts remarks in his [CSS guidelines](htthttp://cssguidelin.es/#commenting): "CSS needs more comments".
+As Harry Roberts remarks in his [CSS guidelines](http://cssguidelin.es/#commenting): "CSS needs more comments".
 
 Comments SHOULD be written as complete, grammatical sentences with an initial capital and a full-stop at the end. (The only exception to initial capital is class and ID identifiers.)
+
+As a general guideline, class and ID names SHOULD explain what, the code SHOULD explain how and comments SHOULD explain why. (See [My 3 Rules for Documenting Code](https://dev.to/wraith/my-3-rules-for-documenting-code-2f54).)
 
 You SHOULD comment anything that isn't immediately obvious from the code alone. These could be explaining:
 
