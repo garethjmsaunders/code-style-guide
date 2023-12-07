@@ -318,6 +318,8 @@ In general, code needs more comments; comment your code prolifically.
 
 Comments are your messages to other developers (and yourself, if you come back to your code after several months working on something else).
 
+As a general guideline, variable, function and class names, etc. SHOULD explain what, the code SHOULD explain how and comments SHOULD explain why. (See [My 3 Rules for Documenting Code](https://dev.to/wraith/my-3-rules-for-documenting-code-2f54).)
+
 You SHOULD comment anything that isn't immediately obvious from the code alone. These could be explaining:
 
 * the structure and/or role of a file;
