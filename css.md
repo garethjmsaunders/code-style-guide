@@ -564,9 +564,9 @@ You SHOULD use `rgb(r, g, b)` and `rgba(r, g, b, a)` codes for colours; there MU
 
 The reason for preferring RGB is three-fold:
 
-1.   Colours in RGB format are easier to read and estimate the colour when reading code.
-2.   It is quicker to add transparency if required (see alpha transparency) below.
-3.   RGB format is more widely supported in graphic design applications without needing to convert to hexadecimal.
+1. Colours in RGB format are easier to read and estimate the colour when reading code.
+2. It is quicker to add transparency if required (see alpha transparency) below.
+3. RGB format is more widely supported in graphic design applications without needing to convert to hexadecimal.
 
 
 #### Use lowercase, short hex codes
