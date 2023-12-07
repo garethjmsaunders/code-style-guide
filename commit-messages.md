@@ -1,7 +1,7 @@
 # Commit message style guide
 
-Version 1.3.2
-Last updated: Wednesday 19 October 2016
+Version 1.4.0
+Last updated: Sunday 01 May 2022
 
 The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document with the meanings found in [RFC 2119: Key words for use in RFCs to indicate requirement levels](https://www.ietf.org/rfc/rfc2119.txt).
 
@@ -19,6 +19,8 @@ The terms MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are used in this document 
 - [3. Tags](#3-tags)
     - [3.1 Semantic versioning](#31-semantic-versioning)
         - [Major versions](#major-versions)
+            - [Major version zero](#major-version-zero)
+            - [Major version one](#major-version-one)
         - [Minor versions](#minor-versions)
         - [Patch versions](#patch-versions)
     - [3.2 Pre-releases](#32-pre-releases)
@@ -98,16 +100,17 @@ The only **exception** is when populating a **new repository**. All that is requ
 
 Every commit subject line MUST start with a TYPE in all CAPS and no spaces or other characters preceding it. The recognised types are:
 
-| TYPE   | Description                                                        |
-| ------ | ------------------------------------------------------------------ |
-| BREAK  | A breaking change such as removing a feature.                      |
-| DOCS   | Changes to the documentation (readme, API docs, etc.).             |
-| FEAT   | New feature in production code.                                    |
-| FIX    | Bug fix in production code.                                        |
-| FORMAT | Code formatting, code comment change, etc; (compiled-code neutral).|
-| MAINT  | Updating dev-related maintenance ("non-production code") files.    |
-| MERGE  | Pull request to merge branch into another branch or master.        |
-| TEST   | Adding missing tests or editing tests.                             |
+| TYPE     | Description                                                        |
+| -------- | ------------------------------------------------------------------ |
+| BREAK    | A breaking change such as removing a feature.                      |
+| DOCS     | Changes to the documentation (readme, API docs, etc.).             |
+| FEAT     | New feature in production code.                                    |
+| FIX      | Bug fix in production code.                                        |
+| FORMAT   | Code formatting, code comment change, etc; (compiled-code neutral).|
+| MAINT    | Updating dev-related maintenance ("non-production code") files.    |
+| MERGE    | Pull request to merge branch into another branch or master.        |
+| REFACTOR | Improve the code without changing the functionality.               |
+| TEST     | Adding missing tests or editing tests.                             |
 
 
 #### ii. Component

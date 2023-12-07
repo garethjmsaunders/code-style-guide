@@ -421,7 +421,7 @@ Comments MAY make their way into production environments as they are ignored whe
 
 ### 7.1 DocBlock
 
-Multi-line comments SHOULD use [phpDocumentor](https://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.pkg.html)-style comments.
+Multi-line comments SHOULD use [phpDocumentor](https://docs.phpdoc.org/3.0/guide/guides/docblocks.html)-style comments.
 
 ```
 /**
